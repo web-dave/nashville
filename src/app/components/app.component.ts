@@ -1,7 +1,6 @@
 import { Component, WritableSignal, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { file } from '../file';
 import { IKey } from '../utils/keymaps';
 import { SongComponent } from './song.component';
 import { KeyTableComponent } from './key-table.component';

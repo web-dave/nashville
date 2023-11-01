@@ -1,13 +1,3 @@
-# Nashville
-
-This tool is meant to transpose Songs using the nashville number system.
-
-The source files need to be plain text.
-
-Example:
-[flowers](./src/app/flowers.txt)
-
-```
 #6m               #2m
  I can buy myself flowers
 #5                     #1   #1/#7
@@ -22,4 +12,4 @@ Example:
  And I can hold my own hand
             #4              #37       #6m
 Yeah, I can love me better than you can
-```
+
