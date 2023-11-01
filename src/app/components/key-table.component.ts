@@ -14,8 +14,16 @@ import { numbers } from '../utils/numbers';
   selector: 'key-table',
   standalone: true,
   imports: [CommonModule],
+  styles: [
+    `
+      .show,
+      .hide {
+        cursor: pointer;
+      }
+    `,
+  ],
   template: `
-    <table>
+    <table class="no-print">
       <thead>
         <th>Key</th>
         @for(key of keys; track key){
@@ -50,6 +58,8 @@ export class KeyTableComponent {
   keyMap = keyMap;
   keys = keys;
   numbers = numbers;
+
+  show = true;
 
   selectKey(e: string) {
     this.selectedKey.update(() => e as IKey);

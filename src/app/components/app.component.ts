@@ -10,8 +10,15 @@ import { KeyTableComponent } from './key-table.component';
   selector: 'app-root',
   standalone: true,
   imports: [CommonModule, RouterOutlet, SongComponent, KeyTableComponent],
-  template: ` <key-table (keySelected)="selectKey($event)" /> <br />
-    <input type="file" (change)="handleFileInput($event)" />
+  template: ` <div class="btn no-print" (click)="fileLoad.click()">📁</div>
+    <key-table (keySelected)="selectKey($event)" /> <br />
+    <input
+      #fileLoad
+      hidden
+      type="file"
+      (change)="handleFileInput($event)"
+      accept=".txt"
+    />
     <app-song [text]="file()" [key]="selectedKey()" />`,
 })
 export class AppComponent {
