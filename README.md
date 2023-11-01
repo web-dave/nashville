@@ -4,8 +4,7 @@ This tool is meant to transpose Songs using the nashville number system.
 
 The source files need to be plain text.
 
-Example:
-[flowers](./src/app/flowers.txt)
+Example: [flowers](./src/app/flowers.txt)
 
 ```
 #6m               #2m

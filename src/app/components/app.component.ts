@@ -29,9 +29,6 @@ export class AppComponent {
   }
 
   handleFileInput(e: Event) {
-    const file: File | null | undefined = (
-      e.target as HTMLInputElement
-    )?.files?.item(0);
     (e.target as HTMLInputElement)?.files
       ?.item(0)
       ?.text()
