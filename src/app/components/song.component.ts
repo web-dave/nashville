@@ -10,13 +10,12 @@ import { IKey, keyMap } from '../utils/keymaps';
   imports: [CommonModule, NashvillePipe],
   template: `
     @for(line of text; track line){
-    <pre class="song">{{ line | nashville : keyMap[key] : numbers }}</pre>
+    <pre class="song">{{ line | nashville : keyMap[key] }}</pre>
     }
   `,
 })
 export class SongComponent {
   @Input({ required: true }) key: IKey = 'C';
   @Input({ required: true }) text: string[] = [];
-  numbers = numbers;
   keyMap = keyMap;
 }

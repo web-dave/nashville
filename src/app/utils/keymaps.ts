@@ -6,11 +6,11 @@
 export type IKey = 'C' | 'D' | 'E' | 'F' | 'G' | 'A' | 'B';
 export const keys = ['C', 'D', 'E', 'F', 'G', 'A', 'B'];
 export const keyMap: { [key: string]: string[] } = {
-  C: ['C', 'Dm', 'Em', 'F', 'G', 'Am', 'B'],
-  D: ['D', 'Em', 'F#m', 'G', 'A', 'Bm', 'C#'],
-  E: ['E', 'F#m', 'G#m', 'A', 'B', 'C#m', 'D#'],
-  F: ['F', 'Gm', 'Am', 'Bb', 'C', 'Dm', 'E'],
-  G: ['G', 'Am', 'Bm', 'C', 'D', 'Em', 'F#'],
-  A: ['A', 'Bm', 'C#m', 'D', 'E', 'F#m', 'G#'],
-  B: ['B', 'C#m', 'D#m', 'E', 'F#', 'G#m', 'A#'],
+  C: ['C', 'D', 'E', 'F', 'G', 'A', 'B'],
+  D: ['D', 'E', 'F#', 'G', 'A', 'B', 'C#'],
+  E: ['E', 'F#', 'G#', 'A', 'B', 'C#', 'D#'],
+  F: ['F', 'G', 'A', 'Bb', 'C', 'D', 'E'],
+  G: ['G', 'A', 'B', 'C', 'D', 'E', 'F#'],
+  A: ['A', 'B', 'C#', 'D', 'E', 'F#', 'G#'],
+  B: ['B', 'C#', 'D#', 'E', 'F#', 'G#', 'A#'],
 };
