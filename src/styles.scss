@@ -1,4 +1,3 @@
-/* You can add global styles to this file, and also import other style files */
 body {
   background-color: #0c0e10;
 
@@ -27,19 +26,19 @@ body {
       width: 45px;
     }
   }
-}
 
-.song {
-  color: aliceblue;
-  margin-left: 20px;
-}
+  .song {
+    color: aliceblue;
+    margin-left: 20px;
+  }
 
-.btn {
-  cursor: pointer;
-  font-size: xx-large;
-  display: inline;
-  right: 15px;
-  position: absolute;
+  .btn {
+    cursor: pointer;
+    font-size: xx-large;
+    display: inline;
+    right: 15px;
+    position: absolute;
+  }
 }
 
 @media print {
@@ -53,4 +52,62 @@ body {
   .song {
     color: black;
   }
+}
+
+.navbar {
+  background-color: #333;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+
+  /* Right-aligned section inside the top navigation */
+  .nav-right {
+    float: right;
+  }
+
+  /* Navbar links */
+  a {
+    float: left;
+    text-align: center;
+    padding: 12px;
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    i.fa {
+      font-size: 3rem;
+    }
+
+    /* Navbar links on mouse-over */
+    &:hover {
+      background-color: #000;
+    }
+
+    /* Current/active navbar link */
+    &.active {
+      background-color: #04aa6d;
+    }
+  }
+}
+
+/* Add responsiveness - will automatically display the navbar vertically instead of horizontally on screens less than 500 pixels */
+@media screen and (max-width: 500px) {
+  .navbar a,
+  .nav-right {
+    float: none;
+    display: block;
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.centered-label {
+  text-align: center;
+  color: #333;
+  font-size: 20rem;
 }
