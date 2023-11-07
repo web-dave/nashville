@@ -48,15 +48,18 @@
     (click)="navOpen = true"
     ><i class="fa fa-bars"></i
   ></span>
-  <app-song [text]="file()" [key]="selectedKey()" />
-  }@else{
-  <div class="container">
-    <label class="centered">
-      <i class="fa fa-fw fa-file" (click)="fileLoad.click()"></i>
-    </label>
-  </div>
   }
 </div>
+
+@if(file().length >= 1){
+<app-song (click)="navOpen = false" [text]="file()" [key]="selectedKey()" />
+}@else{
+<div class="container">
+  <label class="centered">
+    <i class="fa fa-fw fa-file" (click)="fileLoad.click()"></i>
+  </label>
+</div>
+}
 <input
   #fileLoad
   hidden
