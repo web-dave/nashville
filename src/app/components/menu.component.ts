@@ -6,19 +6,26 @@ import { Component, EventEmitter, Output } from '@angular/core';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <div class="navbar no-print">
+    <div #navbar class="navbar no-print">
       <a (click)="trigger.emit('transpose')">
         <i class="fa fa-fw fa-sliders"></i>
       </a>
 
-      <div class="nav-right">
-        <a (click)="trigger.emit('file')">
-          <i class="fa fa-fw fa-file"></i>
-        </a>
-      </div>
+      <a (click)="trigger.emit('print')">
+        <i class="fa fa-fw fa-print"></i>
+      </a>
+      <a (click)="trigger.emit('file')">
+        <i class="fa fa-fw fa-file"></i>
+      </a>
+      <a class="icon" (click)="toggle(navbar)"> &#9776; </a>
     </div>
   `,
 })
 export class MenuComponent {
-  @Output() trigger = new EventEmitter<'file' | 'transpose'>();
+  @Output() trigger = new EventEmitter<'file' | 'transpose' | 'print'>();
+  toggle(elem: HTMLDivElement) {
+    elem.className === 'navbar no-print'
+      ? (elem.className += ' responsive')
+      : (elem.className = 'navbar  no-print');
+  }
 }

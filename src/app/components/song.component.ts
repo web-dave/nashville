@@ -13,6 +13,7 @@ import { IKey, keyMap } from '../utils/keymaps';
     <pre class="song">{{ line | nashville : keyMap[key] }}</pre>
     }
   `,
+  styles: ``,
 })
 export class SongComponent {
   @Input({ required: true }) key: IKey = 'C';

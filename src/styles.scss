@@ -1,5 +1,6 @@
 body {
   background-color: #0c0e10;
+  margin: 0;
 
   table {
     margin: 0 auto;
@@ -27,9 +28,27 @@ body {
     }
   }
 
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    .centered {
+      text-align: center;
+      color: #333;
+      font-size: 20rem;
+    }
+  }
+
   .song {
+    // background-color: #fff;
+    // font-size: 3px;
     color: aliceblue;
     margin-left: 20px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    // border: 5px solid #fff;
   }
 
   .btn {
@@ -54,60 +73,98 @@ body {
   }
 }
 
+// navbar
 .navbar {
-  background-color: #333;
   overflow: hidden;
+  background-color: #333;
   position: fixed;
   bottom: 0;
   width: 100%;
   left: 0;
 
-  /* Right-aligned section inside the top navigation */
-  .nav-right {
-    float: right;
-  }
-
-  /* Navbar links */
   a {
     float: left;
+    display: block;
+    color: #f2f2f2;
     text-align: center;
-    padding: 12px;
-    color: white;
+    padding: 14px 16px;
     text-decoration: none;
-    font-size: 17px;
-    i.fa {
-      font-size: 3rem;
-    }
+    font-size: 25px;
 
-    /* Navbar links on mouse-over */
     &:hover {
-      background-color: #000;
+      background-color: #333;
+      color: black;
     }
-
-    /* Current/active navbar link */
-    &.active {
-      background-color: #04aa6d;
-    }
+  }
+  .icon {
+    display: none;
   }
 }
 
-/* Add responsiveness - will automatically display the navbar vertically instead of horizontally on screens less than 500 pixels */
-@media screen and (max-width: 500px) {
-  .navbar a,
-  .nav-right {
-    float: none;
+@media screen and (max-width: 600px) {
+  .navbar a {
+    display: none;
+  }
+  .navbar a.icon {
+    float: right;
     display: block;
   }
 }
 
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+@media screen and (max-width: 600px) {
+  .navbar.responsive .icon {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+  .navbar.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
 }
-.centered-label {
-  text-align: center;
-  color: #333;
-  font-size: 20rem;
-}
+
+// .navbar {
+//   background-color: #333;
+//   overflow: hidden;
+//   position: fixed;
+//   bottom: 0;
+//   width: 100%;
+//   left: 0;
+
+//   /* Right-aligned section inside the top navigation */
+//   .nav-right {
+//     float: right;
+//   }
+
+//   /* Navbar links */
+//   a {
+//     float: left;
+//     text-align: center;
+//     padding: 12px;
+//     color: white;
+//     text-decoration: none;
+//     font-size: 17px;
+//     i.fa {
+//       font-size: 3rem;
+//     }
+
+//     /* Navbar links on mouse-over */
+//     &:hover {
+//       background-color: #000;
+//     }
+
+//     /* Current/active navbar link */
+//     &.active {
+//       background-color: #04aa6d;
+//     }
+//   }
+// }
+
+// @media screen and (max-width: 500px) {
+//   .navbar a,
+//   .nav-right {
+//     float: none;
+//     display: block;
+//   }
+// }
