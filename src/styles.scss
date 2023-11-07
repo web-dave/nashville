@@ -1,32 +1,7 @@
 body {
   background-color: #0c0e10;
   margin: 0;
-
-  table {
-    margin: 0 auto;
-    border: 1px solid #b3adad;
-    border-collapse: collapse;
-    padding: 5px;
-
-    th {
-      border: 1px solid #b3adad;
-      padding: 5px;
-      background: #f0f0f0;
-      color: #313030;
-      &.active {
-        background-color: #a41fd8;
-      }
-    }
-
-    td {
-      border: 1px solid #b3adad;
-      text-align: center;
-      padding: 5px;
-      background: #ffffff;
-      color: #313030;
-      width: 45px;
-    }
-  }
+  overflow: hidden;
 
   .container {
     display: flex;
@@ -44,127 +19,34 @@ body {
     // background-color: #fff;
     // font-size: 3px;
     color: aliceblue;
-    margin-left: 20px;
     width: fit-content;
+    max-width: 100%;
+    max-height: 100%;
     margin-left: auto;
     margin-right: auto;
+    overflow: scroll;
     // border: 5px solid #fff;
   }
 
-  .btn {
-    cursor: pointer;
-    font-size: xx-large;
-    display: inline;
-    right: 15px;
-    position: absolute;
-  }
-}
-
-@media print {
-  .no-print,
-  .no-print * {
-    display: none !important;
-  }
-  body {
-    background-color: #fff;
-  }
-  .song {
-    color: black;
-  }
-}
-
-// navbar
-.navbar {
-  overflow: hidden;
-  background-color: #333;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  left: 0;
-
-  a {
-    float: left;
+  .nav-open {
+    width: 60%;
     display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 25px;
-
-    &:hover {
-      background-color: #333;
-      color: black;
-    }
   }
-  .icon {
+
+  .nav-close {
     display: none;
   }
-}
 
-@media screen and (max-width: 600px) {
-  .navbar a {
-    display: none;
+  .key-selected,
+  .key-selected:hover,
+  .key-selected:active {
+    color: hotpink !important;
+    background-color: #000 !important;
   }
-  .navbar a.icon {
-    float: right;
-    display: block;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .navbar.responsive .icon {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-  }
-  .navbar.responsive a {
-    float: none;
-    display: block;
-    text-align: left;
+  .key,
+  .key:hover,
+  .key:active {
+    color: #757575 !important;
+    background-color: #000 !important;
   }
 }
-
-// .navbar {
-//   background-color: #333;
-//   overflow: hidden;
-//   position: fixed;
-//   bottom: 0;
-//   width: 100%;
-//   left: 0;
-
-//   /* Right-aligned section inside the top navigation */
-//   .nav-right {
-//     float: right;
-//   }
-
-//   /* Navbar links */
-//   a {
-//     float: left;
-//     text-align: center;
-//     padding: 12px;
-//     color: white;
-//     text-decoration: none;
-//     font-size: 17px;
-//     i.fa {
-//       font-size: 3rem;
-//     }
-
-//     /* Navbar links on mouse-over */
-//     &:hover {
-//       background-color: #000;
-//     }
-
-//     /* Current/active navbar link */
-//     &.active {
-//       background-color: #04aa6d;
-//     }
-//   }
-// }
-
-// @media screen and (max-width: 500px) {
-//   .navbar a,
-//   .nav-right {
-//     float: none;
-//     display: block;
-//   }
-// }

@@ -7,44 +7,17 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { IKey, keyMap } from '../utils/keymaps';
+import { IKey, keyMap, keys } from '../utils/keymaps';
 import { SongComponent } from './song.component';
-import { KeyTableComponent } from './key-table.component';
-import { MenuComponent } from './menu.component';
 import { jsPDF } from 'jspdf';
 import { NashvillePipe } from '../pipes/nashville.pipe';
+import { numbers } from '../utils/numbers';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [
-    CommonModule,
-    RouterOutlet,
-    SongComponent,
-    KeyTableComponent,
-    MenuComponent,
-    NashvillePipe,
-  ],
-  template: ` @if(showTable){
-    <key-table (keySelected)="selectKey($event)" /> <br />
-    }
-    <input
-      #fileLoad
-      hidden
-      type="file"
-      (change)="handleFileInput($event)"
-      accept=".txt"
-    />
-    @if(file().length >= 1){
-    <app-song [text]="file()" [key]="selectedKey()" />
-    }@else{
-    <div class="container">
-      <label class="centered">
-        <i class="fa fa-fw fa-file" (click)="fileLoad.click()"></i>
-      </label>
-    </div>
-    <app-menu (trigger)="handleTrigger($event)" />
-    }`,
+  imports: [CommonModule, RouterOutlet, SongComponent, NashvillePipe],
+  templateUrl: 'app.component.html',
 })
 export class AppComponent {
   @ViewChild('fileLoad') fileLoad!: ElementRef<HTMLInputElement>;
@@ -52,29 +25,18 @@ export class AppComponent {
   selectedKey: WritableSignal<IKey> = signal('C');
   file: WritableSignal<string[]> = signal([]);
   name = '';
-
-  handleTrigger(event: 'file' | 'transpose' | 'print') {
-    switch (event) {
-      case 'file':
-        this.fileLoad.nativeElement.click();
-        break;
-      case 'transpose':
-        this.showTable = !this.showTable;
-        break;
-      case 'print':
-        this.print();
-        break;
-    }
-  }
+  navOpen = false;
+  keys = keys;
 
   selectKey(e: string) {
     this.selectedKey.update(() => e as IKey);
   }
 
   handleFileInput(e: Event) {
-    this.name = (
-      (e.target as HTMLInputElement)?.files?.item(0)?.name || ''
-    ).replace('.txt', '');
+    this.name = ((e.target as HTMLInputElement)?.files?.item(0)?.name || '')
+      .replace('.txt', '')
+      .replace(/number system/gi, '')
+      .replace('()', '');
 
     (e.target as HTMLInputElement)?.files
       ?.item(0)
@@ -86,18 +48,16 @@ export class AppComponent {
     const doc = new jsPDF();
     doc.setFontSize(10);
     doc.setTextColor('#000000');
-    // doc.addFont('Times', 'times', 'normal');
     doc.setFont('courier');
-    console.log(doc.getFontList());
-
-    console.log(document.querySelector('pre')?.textContent);
 
     this.file()[0]
       .split('\n')
       .forEach((ln, i) => {
-        console.log(i % 2);
-
-        if (i % 2 === 0) {
+        console.log(
+          ln,
+          numbers.some((n) => ln.includes(n))
+        );
+        if (numbers.some((n) => ln.includes(n))) {
           doc.setFont('courier', 'bold');
         } else {
           doc.setFont('courier', 'normal');
