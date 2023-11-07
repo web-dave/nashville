@@ -26,5 +26,12 @@
         ]
       }
     }
+  ],
+  "dataGroups": [
+    {
+      "name": "songs",
+      "urls": ["*.txt"],
+      "version": 1
+    }
   ]
 }
