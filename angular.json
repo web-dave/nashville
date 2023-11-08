@@ -30,7 +30,7 @@
             ],
             "styles": [
               "src/styles.scss",
-              "node_modules/font-awesome/scss/font-awesome.scss",
+              "node_modules/font-awesome/css/font-awesome.css",
               "src/w3.css"
             ],
             "scripts": []
