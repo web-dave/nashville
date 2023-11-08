@@ -53,11 +53,7 @@ export class AppComponent {
     this.file()[0]
       .split('\n')
       .forEach((ln, i) => {
-        console.log(
-          ln,
-          numbers.some((n) => ln.includes(n))
-        );
-        if (numbers.some((n) => ln.includes(n))) {
+        if (numbers.some((n) => ln.includes('#' + n))) {
           doc.setFont('courier', 'bold');
         } else {
           doc.setFont('courier', 'normal');
